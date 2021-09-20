@@ -29,32 +29,32 @@ workflows:
   build_and_deploy:
     jobs:
 
-      - aws-ecr/build-and-push-image:
+  #    - aws-ecr/build-and-push-image:
           # auth to aws
 
-          aws-access-key-id: AWS_ACCESS_KEY
-          aws-secret-access-key: AWS_SECRET_ACCESS_KEY
-          region: AWS_REGION
+   #       aws-access-key-id: AWS_ACCESS_KEY
+    #      aws-secret-access-key: AWS_SECRET_ACCESS_KEY
+     #     region: AWS_REGION
 
           # build and push to ecr
-          dockerfile: Dockerfile
-          account-url: AWS_ECR_ACCOUNT_URL
-          repo: megaparts
-          tag: latest
+      #    dockerfile: Dockerfile
+       #   account-url: AWS_ECR_ACCOUNT_URL
+        #  repo: megaparts
+         # tag: latest
 
           # general config
-          attach-workspace: true
-          context: value
-          filters:
-            branches:
-              only:
-                - master
+         # attach-workspace: true
+         # context: value
+         # filters:
+         #  branches:
+          #    only:
+           #     - master
 
 
       - deploy:
-          requires:
-            - aws-ecr/build-and-push-image
-          context: value
+        #  requires:
+         #   - aws-ecr/build-and-push-image
+         # context: value
           filters:
             branches:
               only:
