@@ -14,7 +14,7 @@ EC2_PUBLIC_IP=3.142.232.170
 scp -r -o  StrictHostKeyChecking=no $PWD/* $EC2_USERNAME@$EC2_PUBLIC_IP:~
 ssh -o  StrictHostKeyChecking=no $EC2_USERNAME@$EC2_PUBLIC_IP bash << EOF
 #$(aws ecr get-login --no-include-email --region us-east-2) && \
-docker-compose up -d
+docker-compose.yml up -d
 #&&
 #docker images | awk '{print $3}' | xargs docker rmi
 EOF
