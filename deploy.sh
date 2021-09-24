@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 PUBLIC_IP=$(curl ipinfo.io/ip)
-AWS_REGION=us-east-2c
+AWS_REGION=us-east-2
 SG_ID=sg-0c8b28fbae64b1c66
 /usr/local/bin/aws  ec2 authorize-security-group-ingress --region $AWS_REGION --group-id $SG_ID \
   --protocol tcp --port 22 --cidr $PUBLIC_IP/24
