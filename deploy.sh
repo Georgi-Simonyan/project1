@@ -16,7 +16,7 @@ ssh -o  StrictHostKeyChecking=no $EC2_USERNAME@$EC2_PUBLIC_IP bash << EOF
 #$(aws ecr get-login --no-include-email --region us-east-2) && \
 docker-compose up -d
 #&&
-docker images | awk '{print $3}' | xargs docker rmi
+#docker images | awk '{print $3}' | xargs docker rmi
 EOF
 
 /usr/local/bin/aws ec2 revoke-security-group-ingress --region $AWS_REGION --group-id $SG_ID \
